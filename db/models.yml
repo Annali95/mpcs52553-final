@@ -1,0 +1,52 @@
+Article
+  category: text
+  title: text
+  content: text  
+  post_time: text
+  user_id: integer
+
+Picture
+  article_id: text
+  url: text
+
+Comment
+  user_id: integer
+  article_id: integer
+  content: text
+
+Group
+  name: string
+  create_time: text
+  detail: text
+
+ 
+Connection
+  group_id: integer
+  user_id: integer
+  detail: text
+
+Grouparticle
+  group_id: integer
+  article_id: integer
+
+User
+  name: string
+  mail: text
+  password: text
+  profile: text
+
+
+Admin
+  name: string
+  mail: text
+  password: text
+
+Friendrequest
+  sent: integer
+  receive: integer
+  status: integer
+
+Friend
+  friend1_id: integer
+  friend2_id: integer
+  # friend1_id<friend2_id
