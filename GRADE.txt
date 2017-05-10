@@ -1,0 +1,8 @@
+Milestone #1 Grade - Annali95
+
+Score: (10/10)
+
+- This looks like a good start, but I would definitely try to simplify your modeling! The app should be as simple as possible to start. 
+Ideally, you should not have more than 5 models. See if you can get by without `Comment` or `Group` models, etc.
+
+- Also, make sure to use upper case for your model names. e.g., `Grouparticle` should be `GroupArticle`
