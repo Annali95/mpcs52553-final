@@ -1,0 +1,16 @@
+<%= form_tag "/article/#{@article.id}", method: 'patch' do %>
+  <p>
+    <%= label_tag "title" %>
+    <%= text_field_tag "title" %>
+  </p>
+
+  <p>
+    <%= label_tag "content" %>
+    <%= text_field_tag "content" %>
+  </p>
+
+  <p>
+      <%= submit_tag %>
+  </p>
+
+<% end %>

@@ -4,8 +4,14 @@ class UserController < ApplicationController
     @user = User.new
   end
 
+  def show
+    @user = User.find_by(id: params["id"])
+    if @user.id != session["user_id"]
+      redirect_to "/", "We called the police!"
+    end
+  end
+
   def create
-    # instant variable(not go out of scope)
     @user = User.new
     @user.mail = params["mail"]
     @user.name = params["name"]
@@ -13,9 +19,8 @@ class UserController < ApplicationController
     if @user.save
       redirect_to "/", notice: "Thanks for signing up!"
     else
-      # redirect_to "/users/new", notice: "Please try again!"
-      render 'new'
-  end
+      # redirect_to "/users/new", notice: "Whoa, nice try!"
+      render 'signup'
+    end
   end
 end
-

@@ -1,0 +1,25 @@
+<p><%= link_to "Add a article", "/article/new", class: 'button' %></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+        <th>title</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <% @article.each do |article| %>
+
+        <tr>
+            <td><%= link_to "Toast", "/article/#{article.id}", method: 'delete' %>
+            <td><%= link_to "Edit", "/article/#{article.id}/edit" %>
+            <td><%= link_to "show", "/article/#{article.id}" %>
+
+            <td><%= article.title %></td>
+        </tr>
+
+      <% end %>
+    </tbody>
+  </table>

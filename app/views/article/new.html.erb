@@ -1,0 +1,23 @@
+<h3>Add article</h3>
+
+<%= form_tag "/article" do %>
+
+  <p>
+    <%= label_tag "title" %>
+    <%= text_field_tag "title" %>
+  </p>
+
+  <p>
+    <%= label_tag "content" %>
+    <%= text_field_tag "content" %>
+  </p>
+ 
+  <p>
+      <%= submit_tag "Add Article", class: 'button' %>
+
+      or
+
+      <%= link_to "Cancel", "/article" %>
+  </p>
+
+<% end %>

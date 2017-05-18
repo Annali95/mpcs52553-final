@@ -13,3 +13,141 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  font-family: "Work Sans", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #777777;
+  color: #7f7f7f;
+  background: #fff;
+  height: 100%;
+  position: relative;
+}
+
+a {
+  color: #4AE3B5;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+a:hover, a:active, a:focus {
+  color: #4AE3B5;
+  outline: none;
+}
+
+p {
+  margin-bottom: 1.5em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #000;
+  font-family: "Work Sans", Arial, sans-serif;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 40px;
+}
+
+h3 {
+  font-size: 30px;
+}
+
+h4 {
+  font-size: 26px;
+}
+
+
+#detail {
+  padding: 7em 0;
+}
+@media screen and (max-width: 480px) {
+#detail {
+    padding: 5em 0;
+  }
+}
+
+#detail h3 {
+  font-size: 30px;
+}
+#detail .img-feature-1 {
+  -webkit-box-shadow: -1px -1px 58px -13px rgba(0, 0, 0, 0.9);
+  -moz-box-shadow: -1px -1px 58px -13px rgba(0, 0, 0, 0.9);
+  -ms-box-shadow: -1px -1px 58px -13px rgba(0, 0, 0, 0.9);
+  -o-box-shadow: -1px -1px 58px -13px rgba(0, 0, 0, 0.9);
+  box-shadow: -1px -1px 58px -13px rgba(0, 0, 0, 0.9);
+}
+
+.about_us {
+  padding: 7em 0;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.about_us .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background: #000;
+  opacity: .3;
+}
+.about_us .
+ {
+  position: relative;
+  z-index: 2;
+}
+.about_us .container h3 {
+  margin-bottom: 40px;
+  margin-top: 0;
+  line-height: 1.5;
+}
+.about_us .container h3, .about_us .container p {
+  color: #fff;
+}
+.about_us .container p:last-child {
+  margin-bottom: 0;
+}
+@media screen and (max-width: 768px) {
+  .about_us {
+    padding: 3em 0;
+  }
+}
+
+.btn {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  border-radius: 0px;
+}
+.btn.btn-primary {
+  background: #4AE3B5;
+  color: #fff;
+  border: none !important;
+  border: 2px solid transparent !important;
+}
+.btn.btn-primary:hover, .btn.btn-primary:active, .btn.btn-primary:focus {
+  box-shadow: none;
+  background: #393e46;
+}
+
+.btn.btn-grey {
+  background: #393e46;
+  color: #fff;
+  border: none !important;
+  border: 2px solid transparent !important;
+}
+.btn.btn-grey:hover, .btn.btn-grey:focus, .btn.btn-grey:active {
+   box-shadow: none;
+  background: #394e40;
+}
