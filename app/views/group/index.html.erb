@@ -1,30 +1,30 @@
-<p><%= link_to "Add a new group", "/group/new", class: 'button' %></p>
 
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th></th>
-        <th></th>
-        <th>title</th>
-      </tr>
-    </thead>
-    <tbody>
+<br></br>
 
-      <% @group.each do |group| %>
+<div class="w3-row-padding w3-padding-16">
 
-        <tr>    
-            <td><%= link_to "Join", "/connection/#{group.id}" %>
-            <td><%= link_to "Show", "/group/#{group.id}" %>
-            <td><%= link_to "delete", "/group/#{group.id}" ,method: 'delete' %>
-            <td><%= link_to "edit", "/group/#{group.id}/edit" %>
+<p><%= link_to "Add a new group", "/group/new", class:"w3-button w3-padding-small w3-white w3-border" %></p>
+<ul class="w3-ul w3-hoverable w3-white">
+  <% @group.each do |group| %>
+    <li class="w3-padding-16">
+     <div class="w3-row">
+            <div class="w3-col m8 s12">
+                 <span class="w3-large"><b>name: </b><%= group.name %></span><br></br>
+                 <span class="w3-large"><b>detail: </b><%= group.detail %></span>
 
-           
-            <td><%= group.name %></td>
+            </div>
+          <div class="w3-col m4 w3-hide-small">
+          <span><%= link_to "Showmember", "/groupmember/#{group.id}" ,:class=>"w3-button w3-padding-small w3-white w3-border"%></span>
+          <%= link_to "Join", "/connection/#{group.id}" ,:class=>"w3-button w3-padding-small w3-white w3-border" %>
+          <%= link_to "delete", "/group/#{group.id}",method: 'delete' ,:class=>"w3-button w3-padding-small w3-white w3-border"%><br></br>
+           <%= link_to "group article", "/grouparticle/#{group.id}" ,:class=>"w3-button w3-padding-small w3-white w3-border"%>
+          </div>
+      </div>   
+    </li>
 
-            <td><%= link_to "Showmember", "/groupmember/#{group.id}" %>
+  <% end %>
+</ul>
+</div>
 
-        </tr>
 
-      <% end %>
-    </tbody>
-  </table>
+

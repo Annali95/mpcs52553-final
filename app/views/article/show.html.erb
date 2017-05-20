@@ -1,41 +1,29 @@
-
-
-<div id="detail">
-	<div class="container">
-		<div class="row row-bottom-padded-lg">
-			<div class="col-md-11 ">
-				<div class="col-md-4 animate-box" data-animate-effect="fadeInLeft">
-	<!-- 				<img src="images/screen-1-1-login.jpg" alt="Free HTML5 Bootstrap Template" class="img-responsive img-feature-1">	 -->
-				</div>
-				<div class="col-md-7 col-md-push-1">
 				    <br></br>
-					<h2><%= @article.title %></h2>
-					<p><%= @article.content %></p>
-					<p><%= @article.user.name %></p>
-
-					<p><a href="/article" class="btn btn-primary">Back</a></p>	
-					<p><a href="/article/<%= @article.id %>/edit" class="btn btn-primary">Edit</a></p>	
-
-				</div>
-				
-			</div>
-		</div>
-
-<!-- 		<div class="row row-bottom-padded-lg">
-			<div class="col-md-11 ">
-				<div class="col-md-4 col-md-push-8 animate-box" data-animate-effect="fadeInRight">
-					<img src="images/screen-1-8-list.jpg" alt="Free HTML5 Bootstrap Template" class="img-responsive img-feature-1">	
-				</div>
-				<div class="col-md-7 col-md-pull-4">
 				    <br></br>
-					<h2>北美玩家真人众测，倒量预热。</h2>
-					<p>北美市场早已进入精品化时代，像COK这样的成功案例告诉我们，了解北美玩家的喜好，根据玩家需求不停地迅速迭代更新才是制胜之道。现在再也不用去新西兰或者加拿大找少量的玩家测试了，我们不仅仅提供前期倒量，更重要的是我们平台的玩家还会提供最细致的反馈和数据，加上本地专家的多年经验，我们提供的修改意见已经经过了市场的考验。北美最好的推广模式莫过于口耳相传，质量提高了，好酒不怕巷子深。</p>
-					<p><a href="#" class="btn btn-primary">Learn more</a></p>	
-				</div>
-				
-			</div>
-		</div>
- -->
 
-	</div>
-</div>
+
+ <div class="w3-col l12 s12">
+    <div class="w3-card-4 w3-margin w3-white">
+        <div class="w3-container">
+          <h3><b><%= @article.title %></b></h3>
+          <h5><%= @article.user.name %>     <span class="w3-opacity"><%= @article.post_time %></span></h5>
+        </div>
+        <img src="https://www.w3schools.com/w3images/bridge.jpg" alt="Norway" style="width:100%">
+		<br></br>
+
+        <div class="w3-container">
+         <p><%= @article.content %></p>
+         <div class="w3-row">
+            <div class="w3-col m8 s12">
+                </p><a href="/article" class="w3-button w3-padding-large w3-white w3-border"><b>Back</b></a>
+                <a href="/article/<%= @article.id %>/edit" class="w3-button w3-padding-large w3-white w3-border">Edit</a>	
+                 </p>
+
+            </div>
+          <div class="w3-col m4 w3-hide-small">
+             <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-badge">2</span></span></p>
+          </div>
+       </div>
+     </div>
+  </div>
+

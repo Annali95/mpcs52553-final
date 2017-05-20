@@ -8,46 +8,41 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,700|Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
   </head>
 
-  <body>
-	<nav class="navbar navbar-inverse">
-	  <div class="container-fluid">
-	    <div class="navbar-header">
-	      <a class="navbar-brand" href="/">SkyBlue</a>
-	    </div>
-	    <ul class="nav navbar-nav">
-<!-- 	      <li class="active"><a href="#">Home</a></li>
- -->	      <!-- <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
-	        <ul class="dropdown-menu">
-	          <li><a href="#">Page 1-1</a></li>
-	          <li><a href="#">Page 1-2</a></li>
-	          <li><a href="#">Page 1-3</a></li>
-	        </ul>
-	      </li> -->
-	       <li><%= link_to "Group", "/group" %></li>
-	      <% if cookies["user_id"].present? %>	      
-          <li><%= link_to "My Groups", "/mygroups" %></li>
-          <%end%>
-           <li><%= link_to "Articles", "/article" %></li>
-           <% if cookies["user_id"].present? %>	      
-          <li><%= link_to "My Articles", "/myarticle" %></li>
-          <%end%>
 
-           <% if cookies["user_id"].present? %>
-             <li><%= link_to "Hi,"+User.find_by(id: cookies["user_id"]).name, "/user/#{cookies["user_id"]}" %></li>
-           <% end %>
-	    </ul>
-	    <ul class="nav navbar-nav navbar-right">
-	    <% if cookies["user_id"].present? %>	      
-          <li><%= link_to "Sign Out", "/logout" %></li>
-        <%else%>
-          <li><%= link_to "Sign Up", "/user/new" %></li>
-          <li><%= link_to "Sign In", "/login" %></li>
-         <%end%>
-	    </ul>
-	  </div>
-	</nav>
+  <body>
+
+
+
+  <!-- Navbar (sit on top) -->
+    <div class="w3-top">
+      <div class="w3-bar w3-white w3-wide w3-padding w3-card-2">
+        <a href="/" class="w3-bar-item w3-button"><b>BR</b></a>
+          <a href="/group" class="w3-bar-item w3-button">Groups</a>
+          <% if cookies["user_id"].present? %>        
+            <a href="/mygroups" class="w3-bar-item w3-button">My Groups</a>          
+          <%end%>
+          <a href="/article" class="w3-bar-item w3-button">Articles</a>
+           <% if cookies["user_id"].present? %>        
+            <a href="/myarticle" class="w3-bar-item w3-button">My Articles</a> 
+            <a href="/user/<%=cookies["user_id"]%>" class="w3-bar-item w3-button"> <%= "Hi,"+User.find_by(id: cookies["user_id"]).name%></a>
+  
+          <%end%>
+        <!-- Float links to the right. Hide them on small screens -->
+        <div class="w3-right w3-hide-small">
+          <% if cookies["user_id"].present? %>  
+              <a href="/logout" class="w3-bar-item w3-button">Sign Out</a>      
+            <%else%>
+              <a href="/user/new" class="w3-bar-item w3-button">Sign Up</a>  
+              <a href="/login" class="w3-bar-item w3-button">Sign In</a>  
+             <%end%>
+
+        </div>
+      </div>
+    </div>
 
     <% if notice.present? %>
       <p class="notice"> <%= notice %> </p>
