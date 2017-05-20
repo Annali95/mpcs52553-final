@@ -25,7 +25,7 @@ Connection
   user_id: integer
   detail: text
 
-Grouparticle
+GroupArticle
   group_id: integer
   article_id: integer
 
@@ -41,12 +41,4 @@ Admin
   mail: text
   password: text
 
-Friendrequest
-  sent: integer
-  receive: integer
-  status: integer
 
-Friend
-  friend1_id: integer
-  friend2_id: integer
-  # friend1_id<friend2_id

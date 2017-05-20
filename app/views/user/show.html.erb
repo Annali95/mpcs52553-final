@@ -4,8 +4,11 @@
   <strong>Name:</strong> <%= @user.name %>
 </p>
 <p>
-  <strong>Email:</strong> <%= @user.email %>
+  <strong>Email:</strong> <%= @user.mail %>
 </p>
 <p>
   <strong>Password:</strong> <%= @user.password %>
 </p>
+<p>
+  <%= link_to "Edit", "/user/#{@user.id}/edit" %>
+</p>  

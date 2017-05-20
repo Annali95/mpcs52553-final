@@ -1,7 +1,39 @@
 
-<h3>Article :<%= @article.title %></h3>
-<h2>Content:</h2>
-<p><%= @article.content %></p>
 
+<div id="detail">
+	<div class="container">
+		<div class="row row-bottom-padded-lg">
+			<div class="col-md-11 ">
+				<div class="col-md-4 animate-box" data-animate-effect="fadeInLeft">
+	<!-- 				<img src="images/screen-1-1-login.jpg" alt="Free HTML5 Bootstrap Template" class="img-responsive img-feature-1">	 -->
+				</div>
+				<div class="col-md-7 col-md-push-1">
+				    <br></br>
+					<h2><%= @article.title %></h2>
+					<p><%= @article.content %></p>
+					<p><%= @article.user.name %></p>
 
+					<p><a href="/article" class="btn btn-primary">Back</a></p>	
+				</div>
+				
+			</div>
+		</div>
 
+<!-- 		<div class="row row-bottom-padded-lg">
+			<div class="col-md-11 ">
+				<div class="col-md-4 col-md-push-8 animate-box" data-animate-effect="fadeInRight">
+					<img src="images/screen-1-8-list.jpg" alt="Free HTML5 Bootstrap Template" class="img-responsive img-feature-1">	
+				</div>
+				<div class="col-md-7 col-md-pull-4">
+				    <br></br>
+					<h2>北美玩家真人众测，倒量预热。</h2>
+					<p>北美市场早已进入精品化时代，像COK这样的成功案例告诉我们，了解北美玩家的喜好，根据玩家需求不停地迅速迭代更新才是制胜之道。现在再也不用去新西兰或者加拿大找少量的玩家测试了，我们不仅仅提供前期倒量，更重要的是我们平台的玩家还会提供最细致的反馈和数据，加上本地专家的多年经验，我们提供的修改意见已经经过了市场的考验。北美最好的推广模式莫过于口耳相传，质量提高了，好酒不怕巷子深。</p>
+					<p><a href="#" class="btn btn-primary">Learn more</a></p>	
+				</div>
+				
+			</div>
+		</div>
+ -->
+
+	</div>
+</div>

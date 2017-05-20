@@ -1,0 +1,28 @@
+<p><%= link_to "Add a new article to the group", "/article/new/#{params["group_id"]}", class: 'button' %></p>
+<% if @grouparticle.present? %>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th></th>
+          <th></th>
+          <th>title</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @grouparticle.each do |articles| %>
+
+          <tr>
+              <td><%= link_to "Toast", "/article/#{articles.article_id}", method: 'delete' %>
+              <td><%= link_to "Edit", "/article/#{articles.article_id}/edit" %>
+              <% article = Article.find_by(id: articles.article_id) %>
+      
+              <td><%= article.title %></td>
+              <td><%= article.content %></td>
+          </tr>
+
+        <% end %>
+      </tbody>
+    </table>
+<%else%>  
+<p>Nothing!</p>
+<%end%>

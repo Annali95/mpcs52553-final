@@ -6,9 +6,20 @@ class UserController < ApplicationController
 
   def show
     @user = User.find_by(id: params["id"])
-    if @user.id != session["user_id"]
-      redirect_to "/", "We called the police!"
-    end
+    # if @user.id != cookies["user_id"]
+    #   redirect_to "/", notice:"We called the police!"
+    # end
+  end
+
+  def update
+    @user = User.find_by(id: params["id"])
+    @user.name = params["name"]
+    @user.password = params["password"]
+    @article.save
+    render 'show'
+  end
+  def edit
+    @user = User.find_by(id: params["id"])
   end
 
   def create
@@ -19,8 +30,7 @@ class UserController < ApplicationController
     if @user.save
       redirect_to "/", notice: "Thanks for signing up!"
     else
-      # redirect_to "/users/new", notice: "Whoa, nice try!"
-      render 'signup'
+      render 'new'
     end
   end
 end

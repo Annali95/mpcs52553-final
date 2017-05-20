@@ -4,7 +4,7 @@ class Connection < ApplicationRecord
   belongs_to :group, class_name: 'Group', foreign_key: 'group_id'
   validates :group_id, presence: true
   validates :user_id, presence: true
-
+  
 end
 
 

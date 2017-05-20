@@ -5,14 +5,26 @@ Rails.application.routes.draw do
 
   root "home#index"
 
-  get "/users/new" => 'user#new'
-  post "/user" => 'user#create'
+
+
   get '/login' => 'session#new'
   post '/login' => 'session#create'
   get '/logout' => 'session#destroy'
+  get '/myarticle' => 'article#myarticle'
+  get '/grouparticle/:group_id' => 'article#grouparticle'
+  get '/article/new/:group_id' => 'article#new'
+
+  get '/mygroups' => 'group#mygroup'
+  get '/groupmember/:id' => 'connection#showmember'
+  get '/connection/:group_id' => 'connection#addmember'
+  delete '/connection/:id' => 'connection#destroy'
+  get "/new_grouparticle/:group_id" => 'article#new_grouparticle'
+  get "/new_grouparticle/" => 'article#new_grouparticle'
 
   resources :article
   resources :group
+  resources :user
+
 
 
 

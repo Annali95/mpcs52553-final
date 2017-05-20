@@ -1,0 +1,26 @@
+<% if @connection.present? %>
+  <p><%= link_to "Add a member to the group", "/connection/#{params["id"]}", class: 'button' %></p>
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th></th>
+          <th></th>
+          <th>title</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @connection.each do |connection| %>
+          <tr>
+              <td><%= link_to "Toast", "/group/#{connection.user.name}", method: 'delete' %>
+              <td><%= link_to "Edit", "/group/#{connection.user.name}/edit" %>
+              <td><%= connection.user.name %></td>
+              <td><%= connection.detail %></td>
+          </tr>
+
+        <% end %>
+      </tbody>
+    </table>
+<%else%>  
+<p>Nothing!</p>
+<%end%>

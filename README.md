@@ -18,3 +18,10 @@ Or, you can create a new Rails app yourself and follow these steps:
     ```
 
 Now you can start developing.  Happy coding!
+
+
+1. The connection can not be duplicate.
+can we make sure from the database level?
+3. How to record time inside?
+4. The security need to be make sure.
+5. How to delete something in database?

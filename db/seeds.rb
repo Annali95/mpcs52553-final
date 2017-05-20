@@ -105,27 +105,27 @@ data.each do|entry|
 end
 
 
-# Friend
-#   friend1_id: id
-#   friend2_id: id
-Friend.delete_all
-data = [["Anna","MIA"],
-        ["MIA","ABQ"],               
-        ["ABQ","Anna"]]
+# # Friend
+# #   friend1_id: id
+# #   friend2_id: id
+# Friend.delete_all
+# data = [["Anna","MIA"],
+#         ["MIA","ABQ"],               
+#         ["ABQ","Anna"]]
 
-data.each do|entry|
-  f = Friend.new 
-  user1 = User.find_by(name: entry[0])
-  user2 = User.find_by(name: entry[1])
-  if user1.id>user2.id
-  	f.friend1_id = user2.id
-  	f.friend2_id = user1.id
-  	f.save
-  elsif  user1.id<user2.id
-  	f.friend1_id = user1.id
-  	f.friend2_id = user2.id
-  	f.save
-  end
+# data.each do|entry|
+#   f = Friend.new 
+#   user1 = User.find_by(name: entry[0])
+#   user2 = User.find_by(name: entry[1])
+#   if user1.id>user2.id
+#   	f.friend1_id = user2.id
+#   	f.friend2_id = user1.id
+#   	f.save
+#   elsif  user1.id<user2.id
+#   	f.friend1_id = user1.id
+#   	f.friend2_id = user2.id
+#   	f.save
+#   end
 
 end
 
@@ -171,7 +171,7 @@ puts "  #{Admin.count} admin accounts"
 puts "  #{Comment.count} Comment"
 puts "  #{Connection.count} Connection"
 puts "  #{Grouparticle.count} Grouparticle"
-puts "  #{Friend.count} Friend"
+# puts "  #{Friend.count} Friend"
 
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).

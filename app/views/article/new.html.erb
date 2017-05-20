@@ -11,6 +11,14 @@
     <%= label_tag "content" %>
     <%= text_field_tag "content" %>
   </p>
+
+
+
+
+   <% if params["group_id"].present? %>
+      <%= hidden_field_tag 'group_id', params["group_id"]%>
+   <% end %>
+
  
   <p>
       <%= submit_tag "Add Article", class: 'button' %>

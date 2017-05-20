@@ -2,7 +2,7 @@
 #   name: string
 #   create_time: text
 #   detail: text
-class GruopController < ApplicationController
+class GroupController < ApplicationController
 	def new
 		@group = Group.new
 	end
@@ -48,67 +48,25 @@ class GruopController < ApplicationController
     end
   end
 
-
-
-
-end
-
-
-
-class ArticleController < ApplicationController
-  def new
-    @article = Article.new
-  end
-
-  def show
-    @article = Article.find_by(id: params["id"])
-  end
-
-  def index
-    # page_params = params.permit(:page)
-    @article = Article.all
-    if params["page"].present?
-      page_number = params["page"].to_i
-      @article = @article.limit(5).offset(5*page_number)
+  def mygroup
+    if cookies["user_id"].present?
+      uid = cookies["user_id"]
+      @connection = Connection.where(user_id: uid).find_each
+      # @article = Article.find_by(user_id: uid)
+      if params["page"].present?
+        page_number = params["page"].to_i
+        @group = @group.limit(5).offset(5*page_number)
+      end
+    else
+      redirect_to "/", notice: "Please log in first!"
     end
+
   end
 
-  def edit
-    @article = Article.find_by(id: params["id"])
-  end
 
-  def create
-    article = Article.new
-    article.title = params["title"]
-    article.content = params["content"]
-    article.user_id = params["user_id"]
-    article.post_time = params["post_time"]
-    article.category = params["category"]
-    article.save
-    redirect_to "/article"
-  end
 
-  def update
-    @article = Article.find_by(id: params["id"])
-    @article.title = params["title"]
-    @article.content = params["content"]
-    @article.user_id = params["user_id"]
-    @article.post_time = params["post_time"]
-    @article.category = params["category"]
-    @article.save
-    redirect_to "/article"
-  end
-
-  def destroy
-    article = Article.find_by(id: params["id"])
-    article.delete
-    redirect_to "/article"
-  end
-# Article
-#   category: text
-#   title: text
-#   content: text  
-#   post_time: text
-#   user_id: integer
 
 end
+
+
+

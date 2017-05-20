@@ -1,6 +1,6 @@
-<p><%= link_to "Add a article", "/article/new", class: 'button' %></p>
+<p><%= link_to "Add a new group", "/group/new", class: 'button' %></p>
 
-  <table>
+  <table class="table table-hover">
     <thead>
       <tr>
         <th></th>
@@ -10,14 +10,17 @@
     </thead>
     <tbody>
 
-      <% @article.each do |article| %>
+      <% @group.each do |group| %>
 
-        <tr>
-            <td><%= link_to "Toast", "/article/#{article.id}", method: 'delete' %>
-            <td><%= link_to "Edit", "/article/#{article.id}/edit" %>
-            <td><%= link_to "show", "/article/#{article.id}" %>
+        <tr>    
+            <td><%= link_to "Join", "/connection/#{group.id}" %>
+            <td><%= link_to "Show", "/group/#{group.id}" %>
+            <td><%= link_to "delete", "/group/#{group.id}" ,method: 'delete' %>
+           
+            <td><%= group.name %></td>
 
-            <td><%= article.title %></td>
+            <td><%= link_to "Showmember", "/groupmember/#{group.id}" %>
+
         </tr>
 
       <% end %>

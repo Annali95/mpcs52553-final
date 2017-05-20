@@ -14,11 +14,11 @@
 	<nav class="navbar navbar-inverse">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
-	      <a class="navbar-brand" href="#">WebSiteName</a>
+	      <a class="navbar-brand" href="#">SkyBlue</a>
 	    </div>
 	    <ul class="nav navbar-nav">
-	      <li class="active"><a href="#">Home</a></li>
-	      <!-- <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+<!-- 	      <li class="active"><a href="#">Home</a></li>
+ -->	      <!-- <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
 	        <ul class="dropdown-menu">
 	          <li><a href="#">Page 1-1</a></li>
 	          <li><a href="#">Page 1-2</a></li>
@@ -26,15 +26,25 @@
 	        </ul>
 	      </li> -->
 	       <li><%= link_to "Group", "/group" %></li>
+	      <% if cookies["user_id"].present? %>	      
+          <li><%= link_to "My Groups", "/mygroups" %></li>
+          <%end%>
            <li><%= link_to "Articles", "/article" %></li>
-           <% if session["user_id"].present? %>
-             <li>Hi, <%= link_to User.find_by(id: session["user_id"]).name, "/users/#{session["user_id"]}" %></li>
+           <% if cookies["user_id"].present? %>	      
+          <li><%= link_to "My Articles", "/myarticle" %></li>
+          <%end%>
+
+           <% if cookies["user_id"].present? %>
+             <li><%= link_to "Hi,"+User.find_by(id: cookies["user_id"]).name, "/user/#{cookies["user_id"]}" %></li>
            <% end %>
 	    </ul>
 	    <ul class="nav navbar-nav navbar-right">
-	      <li><%= link_to "Sign Up", "/users/new" %></li>
-          <li><%= link_to "Sign In", "/login" %></li>
+	    <% if cookies["user_id"].present? %>	      
           <li><%= link_to "Sign Out", "/logout" %></li>
+        <%else%>
+          <li><%= link_to "Sign Up", "/users/new" %></li>
+          <li><%= link_to "Sign In", "/login" %></li>
+         <%end%>
 	    </ul>
 	  </div>
 	</nav>

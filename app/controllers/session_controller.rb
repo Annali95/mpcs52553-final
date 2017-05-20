@@ -16,10 +16,10 @@ class SessionController < ApplicationController
         cookies["user_id"] = user.id
         redirect_to "/", notice: "Welcome back, #{user.name}"
       else
-        redirect_to "/login", notice: "Nice try."
+        redirect_to "/login", notice: "Wrong Password"
       end
     else
-      redirect_to "/login", notice: "Nice try."
+      redirect_to "/login", notice: "User name doesn't exist"
     end
   end
 
