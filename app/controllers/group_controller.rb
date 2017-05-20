@@ -26,11 +26,10 @@ class GroupController < ApplicationController
 
 	def update
 		@group = Group.find_by(id: params["id"])
-	    @group.name = params["name"]
-		@group.create_time = params["create_time"]
+    @group.name = params["name"]
 		@group.detail = params["detail"]
 		@group.save
-		redirect_to "/group"
+		render 'show'
   end
 
   def destroy

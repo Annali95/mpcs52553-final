@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.text    "content"
     t.text    "post_time"
     t.integer "user_id"
+    t.integer "like"
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
@@ -43,24 +44,11 @@ ActiveRecord::Schema.define(version: 0) do
     t.index ["user_id"], name: "index_connections_on_user_id"
   end
 
-  create_table "friendrequests", force: :cascade do |t|
-    t.integer "sent"
-    t.integer "receive"
-    t.integer "status"
-  end
-
-  create_table "friends", force: :cascade do |t|
-    t.integer "friend1_id"
-    t.integer "friend2_id"
-    t.index ["friend1_id"], name: "index_friends_on_friend1_id"
-    t.index ["friend2_id"], name: "index_friends_on_friend2_id"
-  end
-
-  create_table "grouparticles", force: :cascade do |t|
+  create_table "group_articles", force: :cascade do |t|
     t.integer "group_id"
     t.integer "article_id"
-    t.index ["article_id"], name: "index_grouparticles_on_article_id"
-    t.index ["group_id"], name: "index_grouparticles_on_group_id"
+    t.index ["article_id"], name: "index_group_articles_on_article_id"
+    t.index ["group_id"], name: "index_group_articles_on_group_id"
   end
 
   create_table "groups", force: :cascade do |t|

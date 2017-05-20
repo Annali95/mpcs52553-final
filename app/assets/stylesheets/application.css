@@ -58,7 +58,30 @@ h3 {
 h4 {
   font-size: 26px;
 }
+#table｛
 
+a {
+  color: #4AE3B5;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+a:hover, a:active, a:focus {
+  color: #4AE3B5;
+  outline: none;
+}
+/*tr:nth-child(even) {
+    background-color: #4AE3B5;
+}
+tr:nth-child(odd) {
+    background-color: #4AE3B5;
+}
+th {
+    color: white;
+    background-color: black;
+}*/
+
+｝
 
 #detail {
   padding: 7em 0;

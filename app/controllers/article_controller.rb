@@ -54,6 +54,7 @@ class ArticleController < ApplicationController
       article.post_time = params["post_time"]
       article.category = params["category"]
       article.user_id = cookies["user_id"]
+      article.like = 0
       article.save
     else
       redirect_to "/", notice: "Please log in first!"
@@ -73,11 +74,8 @@ class ArticleController < ApplicationController
     @article = Article.find_by(id: params["id"])
     @article.title = params["title"]
     @article.content = params["content"]
-    @article.user_id = params["user_id"]
-    @article.post_time = params["post_time"]
-    @article.category = params["category"]
     @article.save
-    redirect_to "/article"
+    render 'show'
   end
 
   def destroy

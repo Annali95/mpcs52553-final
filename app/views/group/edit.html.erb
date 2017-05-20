@@ -1,12 +1,13 @@
-<%= form_tag "/gruop/#{@gruop.id}", method: 'patch' do %>
+<%= form_tag "/group/#{@group.id}", method: 'patch' do %>
+
   <p>
     <%= label_tag "name" %>
-    <%= text_field_tag "name" %>
+    <%= text_field_tag "name" , @group.name%>
   </p>
 
   <p>
     <%= label_tag "detail" %>
-    <%= text_field_tag "detail" %>
+    <%= text_field_tag "detail",@group.detail %>
   </p>
 
   <p>

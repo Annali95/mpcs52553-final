@@ -4,6 +4,7 @@ Article
   content: text  
   post_time: text
   user_id: integer
+  like: integer
 
 Picture
   article_id: text

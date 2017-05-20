@@ -127,7 +127,7 @@ end
 #   	f.save
 #   end
 
-end
+# end
 
 # Admin
 #   name: string
@@ -147,13 +147,13 @@ end
 #   group_id: integer
 #   article_id: integer
 
-Grouparticle.delete_all
+GroupArticle.delete_all
 data = [["Monday",'Friend'],
         ["Thursday",'Friend'],               
         ["Sunday",'Family']]
 
 data.each do|entry|
-  c = Grouparticle.new 
+  c = GroupArticle.new 
   article = Article.find_by(title: entry[0])
   group = Group.find_by(name: entry[1])
   c.article_id = article.id
@@ -170,7 +170,7 @@ puts "  #{User.count} user accounts"
 puts "  #{Admin.count} admin accounts"
 puts "  #{Comment.count} Comment"
 puts "  #{Connection.count} Connection"
-puts "  #{Grouparticle.count} Grouparticle"
+puts "  #{GroupArticle.count} GroupArticle"
 # puts "  #{Friend.count} Friend"
 
 # This file should contain all the record creation needed to seed the database with its default values.
