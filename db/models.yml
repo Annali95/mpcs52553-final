@@ -33,7 +33,7 @@ User
   mail: text
   password: text
   profile: text
-  admin: bool
+  admin: integer
 
 
 Admin
