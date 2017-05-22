@@ -5,10 +5,8 @@ Article
   post_time: text
   user_id: integer
   like: integer
-
-Picture
-  article_id: text
   url: text
+
 
 Comment
   user_id: integer
@@ -35,6 +33,7 @@ User
   mail: text
   password: text
   profile: text
+  admin: bool
 
 
 Admin

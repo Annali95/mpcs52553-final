@@ -1,16 +1,11 @@
 <!-- <p><%= link_to "Add to a Gruop", "/connection/new", class: 'button' %></p> -->
 
 
-
-<br></br>
-<br></br>
-<br></br>
-
 <% if @connection.present? %>
 <div class="w3-row-padding w3-padding-16">
 
-<p><%= link_to "Add a new group", "/group/new", class:"w3-button w3-padding-large w3-white w3-border" %></p>
-<ul class="w3-ul w3-hoverable w3-white">
+<!-- <p><%= link_to "Add a new group", "/group/new", class:"w3-button w3-padding-large w3-white w3-border" %></p>
+ --><ul class="w3-ul w3-hoverable w3-white">
     <% @connection.each do |connection| %>
     <li class="w3-padding-16">
 

@@ -18,7 +18,7 @@ class GroupController < ApplicationController
 	def create
 		group = Group.new
 		group.name = params["name"]
-		group.create_time = params["create_time"]
+		group.create_time = Time.parse(DateTime.now.to_s)
 		group.detail = params["detail"]
 		group.save
 		redirect_to "/group"
@@ -34,7 +34,9 @@ class GroupController < ApplicationController
 
   def destroy
   	group = Group.find_by(id: params["id"])
+    connection = Connection.where(group_id: params["id"])
     group.delete
+    connection.delete_all
     redirect_to "/group"
   end
 

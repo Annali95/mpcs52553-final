@@ -8,7 +8,7 @@
           <h3><b><%= @article.title %></b></h3>
           <h5><%= @article.user.name %>     <span class="w3-opacity"><%= @article.post_time %></span></h5>
         </div>
-        <img src="https://www.w3schools.com/w3images/bridge.jpg" alt="Norway" style="width:100%">
+        <img src= <%= @article.url %> style="width:100%">
 		<br></br>
 
         <div class="w3-container">
@@ -21,7 +21,9 @@
 
             </div>
           <div class="w3-col m4 w3-hide-small">
-             <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-badge">2</span></span></p>
+              <a href="/article/<%= @article.id %>/like" class="w3-button w3-padding-large w3-white w3-border">Likes</a> 
+
+             <span class="w3-badge"><%= @article.like %></span></span>
           </div>
        </div>
      </div>

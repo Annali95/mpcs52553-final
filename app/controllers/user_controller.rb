@@ -26,9 +26,10 @@ class UserController < ApplicationController
     @user = User.new
     @user.mail = params["mail"]
     @user.name = params["name"]
+    @user.admin = 0
     @user.password = params["password"]
     if @user.save
-      redirect_to "/", notice: "Thanks for signing up!"
+      redirect_to "/login", notice: "Thanks for signing up!"
     else
       render 'new'
     end

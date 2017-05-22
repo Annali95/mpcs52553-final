@@ -1,6 +1,5 @@
-<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
 <div class="w3-center w3-padding-16">
-  <%= link_to "Add an article", "/article/new", class: "btn btn-primary" %>
+<%= link_to "Add an article", "/article/new", class: "btn btn-primary" %>
 </div>
 <% if @article.present? %>
 <% count = 0%>
@@ -14,7 +13,8 @@
         <% end %>
         <% count = count+1%>
         <div class="w3-half">
-          <img src="https://www.w3schools.com/w3images/sandwich.jpg" alt="Sandwich" style="width:100%">
+          <img src= <%= article.url %> style="width:100%">
+          
           <h3><%= link_to article.title, "/article/#{article.id}" %></h3>
           <%= link_to "Delete", "/article/#{article.id}", method: 'delete', data: { confirm: 'Are you sure?' } %>
           <%= link_to "Edit", "/article/#{article.id}/edit" %>

@@ -20,11 +20,11 @@ Rails.application.routes.draw do
   delete '/connection/:id' => 'connection#destroy'
   get "/new_grouparticle/:group_id" => 'article#new_grouparticle'
   get "/new_grouparticle/" => 'article#new_grouparticle'
+  get '/article/:id/like' => 'article#like'
 
   resources :article
   resources :group
   resources :user
-
 
 
 

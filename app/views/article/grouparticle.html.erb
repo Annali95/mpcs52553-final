@@ -7,15 +7,15 @@
        <div class="w3-row-padding w3-padding-16 w3-center">
     <% @grouparticle.each do |articles| %>
       <% count = count+1%>
-        <% if count == 3 %> 
+        <% if count == 4 %> 
            </div>
            <div class="w3-row-padding w3-padding-16 w3-center">
            <% count = 0%>
         <% end %>
         <% count = count+1%>
-        <div class="w3-third">
+        <div class="w3-quarter">
           <% article = Article.find_by(id: articles.article_id) %>
-          <img src="https://www.w3schools.com/w3images/sandwich.jpg" alt="Sandwich" style="width:100%">
+          <img src= <%= article.url %> style="width:100%">
           <h3><%= link_to article.title, "/article/#{article.id}" %></h3>
           <%= link_to "Delete", "/article/#{article.id}", method: 'delete', data: { confirm: 'Are you sure?' } %>
           <%= link_to "Edit", "/article/#{article.id}/edit" %>

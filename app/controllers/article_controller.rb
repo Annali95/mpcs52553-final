@@ -46,14 +46,23 @@ class ArticleController < ApplicationController
     @article = Article.find_by(id: params["id"])
   end
 
+  def like
+    @article = Article.find_by(id: params["id"])
+    @article.like = @article.like+1
+    @article.save
+    render 'show'
+  end
+  
   def create
     if cookies["user_id"].present?
-    article = Article.new
+      article = Article.new
       article.title = params["title"]
       article.content = params["content"]
-      article.post_time = params["post_time"]
+      article.post_time = Time.parse(DateTime.now.to_s)
       article.category = params["category"]
       article.user_id = cookies["user_id"]
+      article.url = params["url"]
+
       article.like = 0
       article.save
     else
@@ -74,13 +83,20 @@ class ArticleController < ApplicationController
     @article = Article.find_by(id: params["id"])
     @article.title = params["title"]
     @article.content = params["content"]
+    @article.url = params["url"]
+    @groupArticle = GroupArticle.find_by(article_id: params["id"])
+    @groupArticle.group_id = params["group_id"]
+    @groupArticle.save
+
     @article.save
     render 'show'
   end
 
   def destroy
     article = Article.find_by(id: params["id"])
+    groupArticle = GroupArticle.find_by(article_id: params["id"])
     article.delete
+    groupArticle.delete
     redirect_to :back
 
   end

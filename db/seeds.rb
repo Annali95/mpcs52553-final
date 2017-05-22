@@ -18,8 +18,16 @@ data.each do |entry|
 	user.name = entry[0]
 	user.mail = entry[1]
 	user.password = entry[2]
+  user.admin = 0
 	user.save
 end
+
+user = User.new
+user.name = "admin"
+user.mail = "admin"
+user.password = "password"
+user.admin = 1
+user.save
 
 # Group
 #   name: string
@@ -40,25 +48,28 @@ Group.create name: "Family", create_time: "2017-06-13", detail: "we are family"
 
 Article.delete_all
 
-data = [["1","Monday","I ate an apple!","MIA"],
-        ["2","Tuesday","I ate a banana","MIA"],
-        ["1","Wednesday","I ate a celery","JFK"],
-        ["2","Thursday","I ate a date","JFK"],
-        ["1","Friday","I ate a fish","BOS"],
-        ["2","Saturday","I ate a garlic","BOS"],
-        ["1","Sunday","I ate a hamberger","ABQ"]]
+data = [["1","Monday","I ate an apple!","MIA","https://www.w3schools.com/w3images/sandwich.jpg"],
+        ["2","Tuesday","I ate a banana","MIA","https://www.w3schools.com/w3images/cherries.jpg"],
+        ["1","Wednesday","I ate a celery","JFK","https://www.w3schools.com/w3images/wine.jpg"],
+        ["2","Thursday","I ate a date","JFK","https://www.w3schools.com/w3images/salmon.jpg"],
+        ["1","Friday","I ate a fish","BOS","https://www.w3schools.com/w3images/salmon.jpg"],
+        ["2","Saturday","I ate a garlic","BOS","https://www.w3schools.com/w3images/steak.jpg"],
+        ["1","Sunday","I ate a hamberger","ABQ","https://www.w3schools.com/w3images/popsicle.jpg"]]
 
 # n = 0
 data.each do |entry|
     # n = n+1
     article = Article.new
     article.category = entry[0]
-    # article.post_time = "2017-06-1#{n}"
     article.post_time = "2017-06-11"
     user = User.find_by(name: entry[3])
     article.user_id = user.id
     article.title = entry[1]
     article.content = entry[2]
+    article.url = entry[4]
+    article.like = 0
+
+
     article.save
 end
 

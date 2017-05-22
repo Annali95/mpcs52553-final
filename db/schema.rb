@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.text    "post_time"
     t.integer "user_id"
     t.integer "like"
+    t.text    "url"
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
@@ -57,17 +58,12 @@ ActiveRecord::Schema.define(version: 0) do
     t.text   "detail"
   end
 
-  create_table "pictures", force: :cascade do |t|
-    t.text "article_id"
-    t.text "url"
-    t.index ["article_id"], name: "index_pictures_on_article_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.text   "mail"
     t.text   "password"
     t.text   "profile"
+    t.       "admin"
   end
 
 end

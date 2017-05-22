@@ -14,6 +14,7 @@ class SessionController < ApplicationController
     if user.present?
       if user.password == params['password']
         cookies["user_id"] = user.id
+
         redirect_to "/", notice: "Welcome back, #{user.name}"
       else
         redirect_to "/login", notice: "Wrong Password"

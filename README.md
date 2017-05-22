@@ -22,6 +22,5 @@ Now you can start developing.  Happy coding!
 
 1. The connection can not be duplicate.
 can we make sure from the database level?
-3. How to record time inside?
-4. The security need to be make sure.
-5. How to delete something in database?
+2.Comment function
+3. Like function(one id only can give one like)

@@ -6,6 +6,8 @@ class Article < ApplicationRecord
 
   validates :content, presence: true  
   validates :title, presence: true
+  validates :user_id, presence: true
+
 
 
 end
