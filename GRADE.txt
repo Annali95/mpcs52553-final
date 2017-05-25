@@ -25,7 +25,7 @@ The rule is generally that every model should have its own controller.
 
 Be careful with case and singular vs. plural classes in your model, controllers, routes, and views. 
 While the model class name is singular, all controllers and routes should be plural.
-For example, the model `Article` should have an `ArticlesController` (plural), and routes such as `/articles/new`, `/articles/:id` or `resources :articles`.
+For example, the model `Article` should have an `ArticlesController` (plural), and routes such as `/articles/new`, `/articles/:id`, etc., or `resources :articles`.
 
 Additionally, make sure to include underscores when referencing models such as `GroupArticle`, e.g. `def group_article` or `get /group_article/:group_id`
 
