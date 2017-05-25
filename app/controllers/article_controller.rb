@@ -17,8 +17,8 @@ class ArticleController < ApplicationController
   end
 
   def myarticle
-    if cookies["user_id"].present?
-      uid = cookies["user_id"]
+    if session["user_id"].present?
+      uid = session["user_id"]
       @article = Article.where(user_id: uid).find_each
       # @article = Article.find_by(user_id: uid)
       if params["page"].present?
@@ -54,13 +54,13 @@ class ArticleController < ApplicationController
   end
   
   def create
-    if cookies["user_id"].present?
+    if session["user_id"].present?
       article = Article.new
       article.title = params["title"]
       article.content = params["content"]
       article.post_time = Time.parse(DateTime.now.to_s)
       article.category = params["category"]
-      article.user_id = cookies["user_id"]
+      article.user_id = session["user_id"]
       article.url = params["url"]
 
       article.like = 0

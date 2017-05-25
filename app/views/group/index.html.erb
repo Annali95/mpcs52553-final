@@ -1,8 +1,8 @@
 
 
 <div class="w3-row-padding w3-padding-16">
-<% if cookies["user_id"].present? %>
-<% if User.find_by(id: cookies["user_id"]).admin==1 %>
+<% if session["user_id"].present? %>
+<% if User.find_by(id: session["user_id"]).admin==1 %>
   <p><%= link_to "Add a new group", "/group/new", class:"w3-button w3-padding-small w3-white w3-border" %></p>
 <% end %>
 <% end %>
@@ -19,8 +19,8 @@
           <div class="w3-col m4 w3-hide-small">
           <span><%= link_to "Showmember", "/groupmember/#{group.id}" ,:class=>"w3-button w3-padding-small w3-white w3-border"%></span>
           <%= link_to "Join", "/connection/#{group.id}" ,:class=>"w3-button w3-padding-small w3-white w3-border" %>
-          <% if cookies["user_id"].present? %>
-          <% if User.find_by(id: cookies["user_id"]).admin==1 %>
+          <% if session["user_id"].present? %>
+          <% if User.find_by(id: session["user_id"]).admin==1 %>
               <%= link_to "delete", "/group/#{group.id}",method: 'delete' ,:class=>"w3-button w3-padding-small w3-white w3-border"%><br></br>
            <% end %>
            <% end %>

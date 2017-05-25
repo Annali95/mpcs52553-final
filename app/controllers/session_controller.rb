@@ -1,7 +1,7 @@
 class SessionController < ApplicationController
 
   def destroy
-    cookies.delete("user_id")
+    session.delete("user_id")
     redirect_to "/", notice: "See ya!"
   end
 
@@ -13,7 +13,7 @@ class SessionController < ApplicationController
     user = User.find_by(mail: params["mail"])
     if user.present?
       if user.password == params['password']
-        cookies["user_id"] = user.id
+        session["user_id"] = user.id
 
         redirect_to "/", notice: "Welcome back, #{user.name}"
       else

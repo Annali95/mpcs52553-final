@@ -50,8 +50,8 @@ class GroupController < ApplicationController
   end
 
   def mygroup
-    if cookies["user_id"].present?
-      uid = cookies["user_id"]
+    if session["user_id"].present?
+      uid = session["user_id"]
       @connection = Connection.where(user_id: uid).find_each
       # @article = Article.find_by(user_id: uid)
       if params["page"].present?

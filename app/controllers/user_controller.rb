@@ -6,7 +6,7 @@ class UserController < ApplicationController
 
   def show
     @user = User.find_by(id: params["id"])
-    # if @user.id != cookies["user_id"]
+    # if @user.id != session["user_id"]
     #   redirect_to "/", notice:"We called the police!"
     # end
   end

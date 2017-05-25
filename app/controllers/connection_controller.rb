@@ -10,18 +10,18 @@ class ConnectionController < ApplicationController
 	def create
 		connection = Connection.new
 		connection.group_id = params["name"]
-		connection.user_id = cookies["user_id"]
+		connection.user_id = session["user_id"]
 		connection.detail = params["detail"]
 		connection.save
 		redirect_to "/mygroups"
 	end
 	def addmember
-		if Connection.find_by(group_id: params["group_id"],user_id: cookies["user_id"]).present?
+		if Connection.find_by(group_id: params["group_id"],user_id: session["user_id"]).present?
 			redirect_to "/group",notice: "You already in this Group"
 		else
 		connection = Connection.new
 		connection.group_id = params["group_id"]
-		connection.user_id = cookies["user_id"]
+		connection.user_id = session["user_id"]
 		# connection.detail = params["detail"]
 		connection.save
 		redirect_to "/group"

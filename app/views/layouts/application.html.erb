@@ -8,6 +8,17 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="javascripts/jquery.min.js"></script>
+
+    <script src="javascripts/jquery.waypoints.min.js"></script>
+
+    <script src="javascripts/superfish.js"></script>
+    <!-- Flexslider -->
+    <script src="javascripts/jquery.flexslider-min.js"></script>
+    <!-- Main JS (Do not remove) -->
+    <script src="javascripts/main.js"></script>
+
+
     <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,700|Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -24,18 +35,18 @@
       <div class="w3-bar w3-white w3-wide w3-padding w3-card-2">
         <a href="/" class="w3-bar-item w3-button"><b>BR</b></a>
           <a href="/group" class="w3-bar-item w3-button">Groups</a>
-          <% if cookies["user_id"].present? %>        
+          <% if session["user_id"].present? %>        
             <a href="/mygroups" class="w3-bar-item w3-button">My Groups</a>          
           <%end%>
           <a href="/article" class="w3-bar-item w3-button">Articles</a>
-           <% if cookies["user_id"].present? %>        
+           <% if session["user_id"].present? %>        
             <a href="/myarticle" class="w3-bar-item w3-button">My Articles</a> 
-            <a href="/user/<%=cookies["user_id"]%>" class="w3-bar-item w3-button"> <%= "Hi,"+User.find_by(id: cookies["user_id"]).name%></a>
+            <a href="/user/<%=session["user_id"]%>" class="w3-bar-item w3-button"> <%= "Hi,"+User.find_by(id: session["user_id"]).name%></a>
   
           <%end%>
         <!-- Float links to the right. Hide them on small screens -->
         <div class="w3-right w3-hide-small">
-          <% if cookies["user_id"].present? %>  
+          <% if session["user_id"].present? %>  
               <a href="/logout" class="w3-bar-item w3-button">Sign Out</a>      
             <%else%>
               <a href="/user/new" class="w3-bar-item w3-button">Sign Up</a>  
