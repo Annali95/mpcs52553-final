@@ -6,3 +6,27 @@ Score: (10/10)
 Ideally, you should not have more than 5 models. See if you can get by without `Comment` or `Group` models, etc.
 
 - Also, make sure to use upper case for your model names. e.g., `Grouparticle` should be `GroupArticle`
+
+
+----------------------------------------------------------
+Milestone #2 Grade
+
+Score: (10/10)
+
+Nice work.
+
+Since `GroupArticle` is a separate model, the following routes should be separated into a `GroupArticlesController` as well.
+The rule is generally that every model should have its own controller.
+
+```
+  get "/new_grouparticle/:group_id" => 'article#new_grouparticle'
+  get "/new_grouparticle/" => 'article#new_grouparticle'
+```
+
+Be careful with case and singular vs. plural classes in your model, controllers, routes, and views. 
+While the model class name is singular, all controllers and routes should be plural.
+For example, the model `Article` should have an `ArticlesController` (plural), and routes such as `/articles/new`, `/articles/:id` or `resources :articles`.
+
+Additionally, make sure to include underscores when referencing models such as `GroupArticle`, e.g. `def group_article` or `get /group_article/:group_id`
+
+This may seem like a minor point, but it's important to follow Rails conventions, or your code will be difficult to follow.
