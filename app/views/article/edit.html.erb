@@ -18,6 +18,12 @@
   </p>
 
   <p>
+    <%= label_tag "key" %>
+    <%= text_field_tag "key",@article.key %>
+  </p>
+
+
+  <p>
     <%= submit_tag "Submit changes", class: 'button' %>
     or
     <%= link_to "Cancel", "/article/#{@article.id}" %>

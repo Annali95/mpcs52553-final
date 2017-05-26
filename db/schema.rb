@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "user_id"
     t.integer "like"
     t.text    "url"
+    t.integer "secret"
+    t.text    "key"
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
@@ -59,11 +61,11 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.text   "mail"
-    t.text   "password"
-    t.text   "profile"
-    t.       "admin"
+    t.string  "name"
+    t.text    "mail"
+    t.text    "password"
+    t.text    "profile"
+    t.integer "admin"
   end
 
 end

@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get "/new_grouparticle/:group_id" => 'article#new_grouparticle'
   get "/new_grouparticle/" => 'article#new_grouparticle'
   get '/article/:id/like' => 'article#like'
+  post '/article/secret' => 'article#secret'
 
   resources :article
   resources :group

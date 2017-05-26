@@ -68,6 +68,8 @@ data.each do |entry|
     article.content = entry[2]
     article.url = entry[4]
     article.like = 0
+    article.secret = 0
+
 
 
     article.save

@@ -52,6 +52,11 @@ class ArticleController < ApplicationController
     @article.save
     render 'show'
   end
+  def secret
+    if params["key"]==Article.find_by(id: params["id"]).key
+      redirect_to "/article/#{params["id"]}", notice: "You enter the right password!"
+    end
+  end
   
   def create
     if session["user_id"].present?
@@ -62,7 +67,8 @@ class ArticleController < ApplicationController
       article.category = params["category"]
       article.user_id = session["user_id"]
       article.url = params["url"]
-
+      article.secret = params["secret"]
+      article.key = params["key"]
       article.like = 0
       article.save
     else
@@ -84,10 +90,11 @@ class ArticleController < ApplicationController
     @article.title = params["title"]
     @article.content = params["content"]
     @article.url = params["url"]
+    @article.secret = params["secret"]
+    @article.key = params["key"]
     @groupArticle = GroupArticle.find_by(article_id: params["id"])
     @groupArticle.group_id = params["group_id"]
     @groupArticle.save
-
     @article.save
     render 'show'
   end

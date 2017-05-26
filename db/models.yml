@@ -6,6 +6,8 @@ Article
   user_id: integer
   like: integer
   url: text
+  secret: integer
+  key: text
 
 
 Comment

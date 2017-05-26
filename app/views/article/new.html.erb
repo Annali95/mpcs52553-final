@@ -17,6 +17,12 @@
     <%= text_field_tag "photo" %>
   </p>
 
+  <p>
+    <%= label_tag "key" %>
+    <%= text_field_tag "key" %>
+  </p>
+
+
    <% if params["group_id"].present? %>
       <%= hidden_field_tag 'group_id', params["group_id"]%>
    <% else %>
