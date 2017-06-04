@@ -34,14 +34,14 @@
     <div class="w3-top">
       <div class="w3-bar w3-white w3-wide w3-padding w3-card-2">
         <a href="/" class="w3-bar-item w3-button"><b>BR</b></a>
-          <a href="/group" class="w3-bar-item w3-button">Groups</a>
+          <a href="/groups" class="w3-bar-item w3-button">Groups</a>
           <% if session["user_id"].present? %>        
             <a href="/mygroups" class="w3-bar-item w3-button">My Groups</a>          
           <%end%>
-          <a href="/article" class="w3-bar-item w3-button">Articles</a>
+          <a href="/articles" class="w3-bar-item w3-button">Articles</a>
            <% if session["user_id"].present? %>        
-            <a href="/myarticle" class="w3-bar-item w3-button">My Articles</a> 
-            <a href="/user/<%=session["user_id"]%>" class="w3-bar-item w3-button"> <%= "Hi,"+User.find_by(id: session["user_id"]).name%></a>
+            <a href="/myarticles" class="w3-bar-item w3-button">My Articles</a> 
+            <a href="/users/<%=session["user_id"]%>" class="w3-bar-item w3-button"> <%= "Hi,"+User.find_by(id: session["user_id"]).name%></a>
   
           <%end%>
         <!-- Float links to the right. Hide them on small screens -->
@@ -49,7 +49,7 @@
           <% if session["user_id"].present? %>  
               <a href="/logout" class="w3-bar-item w3-button">Sign Out</a>      
             <%else%>
-              <a href="/user/new" class="w3-bar-item w3-button">Sign Up</a>  
+              <a href="/users/new" class="w3-bar-item w3-button">Sign Up</a>  
               <a href="/login" class="w3-bar-item w3-button">Sign In</a>  
              <%end%>
 

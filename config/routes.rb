@@ -7,25 +7,27 @@ Rails.application.routes.draw do
 
 
 
-  get '/login' => 'session#new'
-  post '/login' => 'session#create'
-  get '/logout' => 'session#destroy'
-  get '/myarticle' => 'article#myarticle'
-  get '/grouparticle/:group_id' => 'article#grouparticle'
-  get '/article/new/:group_id' => 'article#new'
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+  get '/myarticles' => 'articles#myarticle'
+  get '/grouparticles/:group_id' => 'grouparticles#show'
+  get '/articles/new/:group_id' => 'articles#new'
 
-  get '/mygroups' => 'group#mygroup'
-  get '/groupmember/:id' => 'connection#showmember'
-  get '/connection/:group_id' => 'connection#addmember'
-  delete '/connection/:id' => 'connection#destroy'
-  get "/new_grouparticle/:group_id" => 'article#new_grouparticle'
-  get "/new_grouparticle/" => 'article#new_grouparticle'
-  get '/article/:id/like' => 'article#like'
-  post '/article/secret' => 'article#secret'
+  get '/mygroups' => 'groups#mygroup'
+  get '/groupmembers/:id' => 'connections#showmember'
+  get '/connections/:group_id' => 'connections#addmember'
+  delete '/connections/:id' => 'connections#destroy'
+  delete '/connections/:group_id/:user_id' => 'connections#delete'
 
-  resources :article
-  resources :group
-  resources :user
+  # get "/new_grouparticle/:group_id" => 'articles#new_grouparticle'
+  # get "/new_grouparticle/" => 'articles#new_grouparticle'
+  get '/articles/:id/like' => 'articles#like'
+  post '/articles/secret' => 'articles#secret'
+
+  resources :articles
+  resources :groups
+  resources :users
 
 
 

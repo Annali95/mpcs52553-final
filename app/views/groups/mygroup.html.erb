@@ -1,0 +1,33 @@
+<!-- <p><%= link_to "Add to a Gruop", "/connections/new", class: 'button' %></p> -->
+
+
+<% if @connection.present? %>
+<div class="w3-row-padding w3-padding-16">
+
+<!-- <p><%= link_to "Add a new group", "/groups/new", class:"w3-button w3-padding-large w3-white w3-border" %></p>
+ --><ul class="w3-ul w3-hoverable w3-white">
+    <% @connection.each do |connection| %>
+    <li class="w3-padding-16">
+
+
+         <div class="w3-row">
+            <div class="w3-col m8 s12">
+                 <span class="w3-large"><b>name: </b><%= connection.group.name %></span><br></br>
+                 <span class="w3-large"><b>detail: </b><%= connection.group.detail %></span>
+            </div>
+          <div class="w3-col m4 w3-hide-small">
+          <%= link_to "Drop off", "/connections/#{connection.id}", method: 'delete',:class=>"w3-button w3-padding-small w3-white w3-border" %><br></br>
+          <span><%= link_to "group article", "/grouparticles/#{connection.group_id}" ,:class=>"w3-button w3-padding-small w3-white w3-border"%></span>
+          </div>
+      </div>   
+    </li>
+
+  <% end %>
+</ul>
+</div>
+    
+<%else%>  
+<%end%>
+
+<br></br>
+

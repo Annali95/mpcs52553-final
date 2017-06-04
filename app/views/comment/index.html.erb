@@ -1,4 +1,4 @@
-<p><%= link_to "Add a article", "/article/new", class: 'button' %></p>
+<p><%= link_to "Add a article", "/articles/new", class: 'button' %></p>
 
   <table>
     <thead>
@@ -13,9 +13,9 @@
       <% @article.each do |article| %>
 
         <tr>
-            <td><%= link_to "Toast", "/article/#{article.id}", method: 'delete' %>
-            <td><%= link_to "Edit", "/article/#{article.id}/edit" %>
-            <td><%= link_to "show", "/article/#{article.id}" %>
+            <td><%= link_to "Toast", "/articles/#{article.id}", method: 'delete' %>
+            <td><%= link_to "Edit", "/articles/#{article.id}/edit" %>
+            <td><%= link_to "show", "/articles/#{article.id}" %>
 
             <td><%= article.title %></td>
         </tr>

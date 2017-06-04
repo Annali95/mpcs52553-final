@@ -1,0 +1,32 @@
+<%= form_tag "/articles/#{@article.id}", method: 'patch' do %>
+  <p>
+    <%= label_tag "title" %>
+    <%= text_field_tag "title" , @article.title%>
+  </p>
+
+  <p>
+    <%= label_tag "content" %>
+    <%= text_field_tag "content", @article.content %>
+  </p>
+  <p>
+    <%= label_tag "photo" %>
+    <%= text_field_tag "url", @article.url %>
+  </p>
+  <p>
+    <%= label_tag "group" %>
+    <%= select_tag 'group_id',options_from_collection_for_select(Group.all, :id, :name ) %>
+  </p>
+
+  <p>
+    <%= label_tag "key" %>
+    <%= text_field_tag "key",@article.key %>
+  </p>
+
+
+  <p>
+    <%= submit_tag "Submit changes", class: 'button' %>
+    or
+    <%= link_to "Cancel", "/articles/#{@article.id}" %>
+  </p>
+
+<% end %>

@@ -1,0 +1,55 @@
+
+<div class="w3-center w3-padding-16">
+<% if session["user_id"].present? %>
+  <%= link_to "Add an article", "/articles/new", class: "btn btn-primary" %>
+<% end %>
+ 
+</div>
+
+
+ <% count = 0%>
+<div class="w3-row-padding w3-padding-16 w3-center">
+<% @article.each do |article| %>
+  <% count = count+1%>
+    <% if count == 4 %> 
+       </div>
+       <div class="w3-row-padding w3-padding-16 w3-center">
+       <% count = 0%>
+    <% end %>
+    <% count = count+1%>
+      <% if article.key.present? %> 
+           <div class="w3-quarter">
+          <h3> <%= article.title %></h3>
+          <p> <%= article.user.name %></p>
+
+          <%= form_tag "/articles/secret" do %>
+          <p>
+          <%= label_tag "Please enter the passward for this article" %>
+          <%= text_field_tag "key" %>
+          </p>
+          <%= hidden_field_tag 'id', article.id  %>
+          <p>
+            <%= submit_tag "submit", class: 'button' %>        
+          </p>
+          <% end %>
+         </div>
+
+      <% else %> 
+        <div class="w3-quarter">
+        <a href= "/articles/<%= article.id %>"> <img src= <%= article.url %> style="width:100%"></a>
+        <h3><%= link_to article.title, "/articles/#{article.id}" %></h3>
+        <% if session["user_id"].present? %>
+            <% if User.find_by(id: session["user_id"]).admin==1 %>
+            <%= link_to "Delete", "/articles/#{article.id}", method: 'delete'%>
+          <% end %>
+        <% end %>
+        <p><%= article.content %></p>
+      </div>
+
+    <% end %>
+
+
+<% end %>
+</div>
+
+  
