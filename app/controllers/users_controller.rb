@@ -14,8 +14,9 @@ class UsersController < ApplicationController
   def update
     @user = User.find_by(id: params["id"])
     @user.name = params["name"]
+    # @user.update_attributes(password: params["password"], password_confirmation: params["password"])
     @user.password = params["password"]
-    @article.save
+    @user.save
     render 'show'
   end
   def edit

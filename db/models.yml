@@ -33,7 +33,7 @@ GroupArticle
 User
   name: string
   mail: text
-  password: text
+  password_digest: text
   profile: text
   admin: integer
 
@@ -41,6 +41,6 @@ User
 Admin
   name: string
   mail: text
-  password: text
+  password_digest: text
 
 
