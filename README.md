@@ -19,8 +19,11 @@ password:1001
 . You can view articles in your group.
 . You can post private articles.(Other users need to answer your secret questions to see your post.)
 . You can like an articles.
+. You can use chart to see google chart.
 
 For admin:
+e-mail:admin
+password:password
 . You can login/out
 . You can create a group.
 . You can delete a group.

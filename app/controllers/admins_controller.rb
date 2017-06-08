@@ -15,6 +15,9 @@ class AdminsController < ApplicationController
       # redirect_to "/users/new", notice: "Please try again!"
       render 'new'
   end
+  def chart
+  end
+
   end
 end
 

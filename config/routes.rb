@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
+  get '/mychart' => 'admins#chart'
+
   get '/myarticles' => 'articles#myarticle'
   get '/grouparticles/:group_id' => 'grouparticles#show'
   get '/articles/new/:group_id' => 'articles#new'

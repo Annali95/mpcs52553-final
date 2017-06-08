@@ -1,0 +1,49 @@
+
+  <% alldata = Array.new %>
+  <% count_user = 0%>
+  <% User.all.each do |user| %> 
+    <% count_user = count_user+1%>
+    <% articles = Article.where(user_id: user.id).find_each%>
+      <% count = 0%>
+      <% articles.each do |a| %> 
+        <% count = count+1%>
+      <% end %>
+      <% entry = [ user.name, count] %>
+
+  <% alldata.insert(-1, entry)%> 
+
+  <% end %>
+
+
+
+<head>
+
+   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'user');
+        data.addColumn('number', 'count');
+        <% alldata.each do|name,count|%>
+        data.addRow(["<%= name %>" ,<%=count %> ])
+        <% end %>
+        var options = {
+          title: 'articles users writed'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+      }
+    </script>
+
+</head>
+<body>
+
+    <div id="piechart" style="width: 900px; height: 500px;"></div>
+     <a href="/mychart" class="w3-bar-item w3-button">Show chart</a> 
+</body>

@@ -42,6 +42,7 @@
            <% if session["user_id"].present? %>        
             <a href="/myarticles" class="w3-bar-item w3-button">My Articles</a> 
             <a href="/users/<%=session["user_id"]%>" class="w3-bar-item w3-button"> <%= "Hi,"+User.find_by(id: session["user_id"]).name%></a>
+            <a href="/mychart" class="w3-bar-item w3-button">chart</a> 
   
           <%end%>
         <!-- Float links to the right. Hide them on small screens -->
