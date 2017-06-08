@@ -31,7 +31,7 @@ class ConnectionsController < ApplicationController
 
 
 	def delete
-		connection = Connection.find_by(group_id: params["group_id"],user_id: session["user_id"])
+		connection = Connection.find_by(group_id: params["group_id"],user_id: params["user_id"])
         connection.delete
         redirect_to :back
     end
