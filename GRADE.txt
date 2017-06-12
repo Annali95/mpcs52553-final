@@ -1,3 +1,21 @@
+Final Grade
+
+Score: (27/30)
+
+Notes:
+
+1. I was able to like the same article more than once.
+
+2. I attempted to add a new article with only the title filled out, and expected to see validation errors on the form
+for missing fields. Instead, I was redirected to the `/myarticles` page with no error message.
+
+3. I did not see a link or form to update my profile information (name, email, password).
+
+4. Nice work using the Google Charts API, however, it's a bit confusing what information the chart is showing. I could also
+see the chart becoming cluttered as more users are added to the site.
+
+-----
+
 Milestone #1 Grade - Annali95
 
 Score: (10/10)
@@ -7,8 +25,8 @@ Ideally, you should not have more than 5 models. See if you can get by without `
 
 - Also, make sure to use upper case for your model names. e.g., `Grouparticle` should be `GroupArticle`
 
+-----
 
-----------------------------------------------------------
 Milestone #2 Grade
 
 Score: (10/10)
